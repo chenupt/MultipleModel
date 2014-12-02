@@ -1,39 +1,47 @@
-package github.chenupt.myapplication;
+package github.chenupt.sample;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.ActionBarActivity;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import github.chenupt.multiplemodel.ItemEntityCreator;
+import github.chenupt.multiplemodel.ModelFactory;
+import github.chenupt.multiplemodel.SimpleItemEntity;
+import github.chenupt.multiplemodel.SimpleModelAdapter;
+import github.chenupt.multiplemodel.aa.AAModelFactory;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    ListView listView;
+
+    private SimpleModelAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
+        listView = (ListView) findViewById(R.id.list_view);
+        ModelFactory modelFactory = new AAModelFactory.Builder().addModel(CustomView.class).build();
+        adapter = new SimpleModelAdapter(this, modelFactory);
+        listView.setAdapter(adapter);
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
+        List<SimpleItemEntity> list = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+            ItemEntityCreator.create("").setModelView(CustomView.class).attach(list);
         }
 
-        return super.onOptionsItemSelected(item);
+        adapter.addList(list);
+        adapter.notifyDataSetChanged();
+
+
     }
+
+
+
 }

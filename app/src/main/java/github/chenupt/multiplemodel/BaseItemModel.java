@@ -69,4 +69,12 @@ public abstract class BaseItemModel<T> extends FrameLayout {
     public void notifyDataSetChanged(){
         adapter.notifyDataSetChanged();
     }
+
+    public List<SimpleItemEntity<T>> getModelList() {
+        return modelList;
+    }
+
+    public void setModelList(List<SimpleItemEntity<T>> modelList) {
+        this.modelList = modelList;
+    }
 }
