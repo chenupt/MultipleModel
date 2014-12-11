@@ -45,6 +45,11 @@ public class SimpleItemEntity<T> implements Serializable{
      */
     private boolean isSingleton;
 
+    /**
+     * 设置单一项的tag，方便寻找到特定的item
+     */
+    private String tag = "";
+
     public SimpleItemEntity() {
         // 默认设置数据缓存时间为当前时间戳
         setTimestamp(System.currentTimeMillis());
@@ -147,6 +152,15 @@ public class SimpleItemEntity<T> implements Serializable{
 
     public SimpleItemEntity setExtraData(Object extraData) {
         this.extraData = extraData;
+        return this;
+    }
+
+    public String getTag() {
+        return tag;
+    }
+
+    public SimpleItemEntity setTag(String tag) {
+        this.tag = tag;
         return this;
     }
 

@@ -3,7 +3,9 @@ package github.chenupt.multiplemodel;
 import android.content.Context;
 import android.util.Log;
 
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * Created by chenupt@gmail.com on 2014/8/7.
@@ -74,6 +76,37 @@ public class ModelFactory {
     }
 
 
+    /**
+     * get the tag item at the start.
+     * @param list  list data
+     * @param tag   tag value
+     * @return      item model
+     */
+    public SimpleItemEntity getStartItemByTag(List<SimpleItemEntity> list, String tag){
+        for (SimpleItemEntity entity : list) {
+            if (entity.getTag().equals(tag)){
+                return entity;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * get the tag item at the end.
+     * @param list  list data
+     * @param tag   tag value
+     * @return      item model
+     */
+    public SimpleItemEntity getEndItemByTag(List<SimpleItemEntity> list, String tag){
+        Collections.reverse(list);
+        for (SimpleItemEntity entity : list) {
+            if (entity.getTag().equals(tag)){
+                Collections.reverse(list);
+                return entity;
+            }
+        }
+        return null;
+    }
 
     //------------创建ModelFactory需添加Model---------
 
