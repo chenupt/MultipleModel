@@ -21,4 +21,11 @@ public class AAModelFactory extends ModelFactory {
     protected BaseItemModel newInstance(Context context, Class<?> owner) throws Exception {
         return (BaseItemModel) owner.getMethod("build", new Class[]{Context.class}).invoke(owner, context);
     }
+
+    public static class AABuilder extends Builder {
+        @Override
+        public ModelFactory build() {
+            return new AAModelFactory(this);
+        }
+    }
 }
