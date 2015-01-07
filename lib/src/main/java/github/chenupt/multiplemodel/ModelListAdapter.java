@@ -9,7 +9,7 @@ import android.view.ViewGroup;
  * Created by chenupt@gmail.com on 2014/8/8.
  * Description : Simple base adapter for getting multiple item views in list.
  */
-public class ModelListAdapter extends BaseListAdapter<SimpleItemEntity> {
+public class ModelListAdapter extends BaseListAdapter<ItemEntity> {
 
     protected IModelManager modelManager;
 

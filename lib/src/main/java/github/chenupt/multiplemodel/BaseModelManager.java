@@ -18,7 +18,6 @@ public abstract class BaseModelManager implements IModelManager {
 
     public BaseModelManager(ModelManagerBuilder builder) {
         this.builder = builder;
-        Log.d("cjf", "BaseModelManager");
     }
 
     @Override
@@ -77,8 +76,8 @@ public abstract class BaseModelManager implements IModelManager {
      * @param tag   tag value
      * @return      item model
      */
-    public SimpleItemEntity getStartItemByTag(List<SimpleItemEntity> list, String tag){
-        for (SimpleItemEntity entity : list) {
+    public ItemEntity getStartItemByTag(List<ItemEntity> list, String tag){
+        for (ItemEntity entity : list) {
             if (entity.getTag().equals(tag)){
                 return entity;
             }
@@ -92,9 +91,9 @@ public abstract class BaseModelManager implements IModelManager {
      * @param tag   tag value
      * @return      item model
      */
-    public SimpleItemEntity getEndItemByTag(List<SimpleItemEntity> list, String tag){
+    public ItemEntity getEndItemByTag(List<ItemEntity> list, String tag){
         Collections.reverse(list);
-        for (SimpleItemEntity entity : list) {
+        for (ItemEntity entity : list) {
             if (entity.getTag().equals(tag)){
                 Collections.reverse(list);
                 return entity;
