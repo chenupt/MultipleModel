@@ -10,27 +10,27 @@ import android.support.v4.app.FragmentStatePagerAdapter;
  */
 public class SimplePagerAdapter extends FragmentStatePagerAdapter {
 
-    protected PagerModelFactory pagerModelFactory;
+    protected PagerModelManager pagerModelManager;
 
-    public SimplePagerAdapter(FragmentManager fm, PagerModelFactory pagerModelFactory) {
+    public SimplePagerAdapter(FragmentManager fm, PagerModelManager pagerModelManager) {
         super(fm);
-        this.pagerModelFactory = pagerModelFactory;
+        this.pagerModelManager = pagerModelManager;
     }
 
     @Override
     public Fragment getItem(int position) {
-        return pagerModelFactory.getItem(position);
+        return pagerModelManager.getItem(position);
     }
 
     @Override
     public int getCount() {
-        return pagerModelFactory.getFragmentCount();
+        return pagerModelManager.getFragmentCount();
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        if(pagerModelFactory.hasTitles()){
-            return pagerModelFactory.getTitle(position);
+        if(pagerModelManager.hasTitles()){
+            return pagerModelManager.getTitle(position);
         }
         return super.getPageTitle(position);
     }

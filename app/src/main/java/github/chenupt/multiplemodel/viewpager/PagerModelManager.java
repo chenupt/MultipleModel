@@ -11,14 +11,14 @@ import java.util.List;
  * Created by chenupt@gmail.com on 2014/8/9.
  * Description TODO
  */
-public class PagerModelFactory {
+public class PagerModelManager {
 
     public final static String DATA = "data";
 
     private List<CharSequence> titleList;
     private List<Fragment> fragmentList;
 
-    public PagerModelFactory() {
+    public PagerModelManager() {
         titleList = new ArrayList<CharSequence>();
         fragmentList = new ArrayList<Fragment>();
     }
@@ -39,24 +39,24 @@ public class PagerModelFactory {
         return titleList.get(position);
     }
 
-    public PagerModelFactory addFragment(Fragment fragment, CharSequence title){
+    public PagerModelManager addFragment(Fragment fragment, CharSequence title){
         titleList.add(title);
         addFragment(fragment);
         return this;
     }
 
-    public PagerModelFactory addFragment(Fragment fragment){
+    public PagerModelManager addFragment(Fragment fragment){
         fragmentList.add(fragment);
         return this;
     }
 
-    public PagerModelFactory addCommonFragment(Class<?> c, List<? extends Serializable> list, List<String> titleList){
+    public PagerModelManager addCommonFragment(Class<?> c, List<? extends Serializable> list, List<String> titleList){
         this.titleList.addAll(titleList);
         addCommonFragment(c, list);
         return this;
     }
 
-    public PagerModelFactory addCommonFragment(Class<?> c, List<? extends Serializable> list){
+    public PagerModelManager addCommonFragment(Class<?> c, List<? extends Serializable> list){
         try {
             for(int i = 0; i < list.size(); i ++){
                 Fragment fragment = (Fragment) c.newInstance();
@@ -73,12 +73,12 @@ public class PagerModelFactory {
         return this;
     }
 
-    public PagerModelFactory addCommonFragment(List<? extends Fragment> list){
+    public PagerModelManager addCommonFragment(List<? extends Fragment> list){
         fragmentList.addAll(list);
         return this;
     }
 
-    public PagerModelFactory addCommonFragment(List<? extends Fragment> list, List<String> titleList){
+    public PagerModelManager addCommonFragment(List<? extends Fragment> list, List<String> titleList){
         this.titleList.addAll(titleList);
         addCommonFragment(list);
         return this;
