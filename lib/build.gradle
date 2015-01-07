@@ -38,14 +38,3 @@ artifacts {
     archives androidJar
 }
 
-apply plugin: 'maven'
-uploadArchives {
-    repositories.mavenDeployer {
-        pom.groupId = 'com.wisorg'
-        pom.artifactId = 'msc-android-multiplemodel'
-        pom.version = '1.0.1-SNAPSHOT'
-        repository(url: "http://dev.wisorg.com/nexus/content/repositories/snapshots/") {
-            authentication(userName: "admin", password: "danexus")
-        }
-    }
-}
