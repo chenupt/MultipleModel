@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false">
-    <file url="file://$PROJECT_DIR$/app/src/main/java/github/chenupt/multiplemodel/BaseItemModel.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/github/chenupt/multiplemodel/BaseListAdapter.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/github/chenupt/multiplemodel/ItemEntityCreator.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/github/chenupt/multiplemodel/ModelFactory.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/github/chenupt/multiplemodel/ModelListAdapter.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/github/chenupt/multiplemodel/SimpleItemEntity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lib/src/main/java/github/chenupt/multiplemodel/BaseItemModel.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lib/src/main/java/github/chenupt/multiplemodel/BaseListAdapter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lib/src/main/java/github/chenupt/multiplemodel/ItemEntityCreator.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lib/src/main/java/github/chenupt/multiplemodel/ModelFactory.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lib/src/main/java/github/chenupt/multiplemodel/ModelListAdapter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/lib/src/main/java/github/chenupt/multiplemodel/SimpleItemEntity.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sample/src/main/java/github/chenupt/sample/UnScrollGridView.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/sample/src/main/java/github/chenupt/sample/UnScrollListView.java" charset="UTF-8" />
   </component>
