@@ -30,6 +30,9 @@ public class AAListActivity extends ActionBarActivity {
     void afterViews(){
         ModelListAdapter adapter = new ModelListAdapter(this, service.getAAModelManager());
         listView.setAdapter(adapter);
+
+        adapter.addList(service.getTestList());
+        adapter.notifyDataSetChanged();
     }
 
 }

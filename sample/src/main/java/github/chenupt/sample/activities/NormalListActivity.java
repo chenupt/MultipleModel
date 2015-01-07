@@ -4,7 +4,9 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.widget.ListView;
 
+import github.chenupt.multiplemodel.ModelListAdapter;
 import github.chenupt.sample.CommonService;
+import github.chenupt.sample.CommonService_;
 import github.chenupt.sample.R;
 
 /**
@@ -21,7 +23,12 @@ public class NormalListActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
         listView = (ListView) findViewById(R.id.list_view);
+        service = CommonService_.getInstance_(this);
 
+        ModelListAdapter adapter = new ModelListAdapter(this, service.getAAModelManager());
+        listView.setAdapter(adapter);
 
+        adapter.addList(service.getTestList());
+        adapter.notifyDataSetChanged();
     }
 }

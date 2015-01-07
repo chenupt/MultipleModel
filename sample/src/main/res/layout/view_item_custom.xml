@@ -6,14 +6,13 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New CheckBox"
+        android:text="CheckBox"
         android:id="@+id/checkBox" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/textView"
+        android:id="@+id/text_view"
         android:layout_gravity="center_horizontal" />
 </LinearLayout>
