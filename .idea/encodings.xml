@@ -5,10 +5,7 @@
     <file url="file://$PROJECT_DIR$/lib/src/main/java/github/chenupt/multiplemodel/BaseListAdapter.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/lib/src/main/java/github/chenupt/multiplemodel/ItemEntity.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/lib/src/main/java/github/chenupt/multiplemodel/ItemEntityCreator.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/lib/src/main/java/github/chenupt/multiplemodel/ModelFactory.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/lib/src/main/java/github/chenupt/multiplemodel/ModelListAdapter.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/sample/src/main/java/github/chenupt/sample/UnScrollGridView.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/sample/src/main/java/github/chenupt/sample/UnScrollListView.java" charset="UTF-8" />
   </component>
 </project>
 

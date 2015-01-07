@@ -1,9 +1,10 @@
-package github.chenupt.sample;
+package github.chenupt.sample.views;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 
 import github.chenupt.multiplemodel.BaseItemModel;
+import github.chenupt.sample.R;
 
 /**
  * Created by chenupt@gmail.com on 11/26/14.

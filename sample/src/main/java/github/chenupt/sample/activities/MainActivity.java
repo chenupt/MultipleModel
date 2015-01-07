@@ -1,4 +1,4 @@
-package github.chenupt.sample;
+package github.chenupt.sample.activities;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -13,6 +13,8 @@ import github.chenupt.multiplemodel.ItemEntityCreator;
 import github.chenupt.multiplemodel.ModelListAdapter;
 import github.chenupt.multiplemodel.ModelManager;
 import github.chenupt.multiplemodel.ModelManagerBuilder;
+import github.chenupt.sample.views.CustomView;
+import github.chenupt.sample.R;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -50,8 +52,6 @@ public class MainActivity extends ActionBarActivity {
         adapter.addList(list);
         adapter.notifyDataSetChanged();
 
-        testStartGetByTag();
-        testEndGetByTag();
     }
 
 
