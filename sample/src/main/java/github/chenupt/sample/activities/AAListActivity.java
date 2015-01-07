@@ -31,7 +31,7 @@ public class AAListActivity extends ActionBarActivity {
         ModelListAdapter adapter = new ModelListAdapter(this, service.getAAModelManager());
         listView.setAdapter(adapter);
 
-        adapter.addList(service.getTestList());
+        adapter.addList(service.getAATestList());
         adapter.notifyDataSetChanged();
     }
 

@@ -11,7 +11,9 @@ import github.chenupt.multiplemodel.ItemEntityCreator;
 import github.chenupt.multiplemodel.ModelManager;
 import github.chenupt.multiplemodel.ModelManagerBuilder;
 import github.chenupt.multiplemodel.aa.AAModelManager;
-import github.chenupt.sample.views.CustomLargeView_;
+import github.chenupt.sample.views.AACustomLargeView_;
+import github.chenupt.sample.views.AACustomView_;
+import github.chenupt.sample.views.CustomLargeView;
 import github.chenupt.sample.views.CustomView;
 
 /**
@@ -28,15 +30,15 @@ public class CommonService {
         return ModelManagerBuilder
                 .begin()
                 .addModel(CustomView.class)
-                .addModel(CustomLargeView_.class)
+                .addModel(CustomLargeView.class)
                 .build(ModelManager.class);
     }
 
     public AAModelManager getAAModelManager(){
         return ModelManagerBuilder
                 .begin()
-                .addModel(CustomView.class)
-                .addModel(CustomLargeView_.class)
+                .addModel(AACustomView_.class)
+                .addModel(AACustomLargeView_.class)
                 .build(AAModelManager.class);
     }
 
@@ -44,9 +46,16 @@ public class CommonService {
         List<ItemEntity> resultList = new ArrayList<ItemEntity>();
         for (int i = 0; i < testStrings.length; i++) {
             ItemEntityCreator.create("hello " + testStrings[i]).setModelView(CustomView.class).attach(resultList);
+            ItemEntityCreator.create("hello " + testStrings[i]).setModelView(CustomLargeView.class).attach(resultList);
         }
+        return resultList;
+    }
+
+    public List<ItemEntity> getAATestList(){
+        List<ItemEntity> resultList = new ArrayList<ItemEntity>();
         for (int i = 0; i < testStrings.length; i++) {
-            ItemEntityCreator.create("hello " + testStrings[i]).setModelView(CustomLargeView_.class).attach(resultList);
+            ItemEntityCreator.create("hello AA " + testStrings[i]).setModelView(AACustomView_.class).attach(resultList);
+            ItemEntityCreator.create("hello AA " + testStrings[i]).setModelView(AACustomLargeView_.class).attach(resultList);
         }
         return resultList;
     }

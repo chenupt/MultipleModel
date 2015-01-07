@@ -25,7 +25,7 @@ public class NormalListActivity extends ActionBarActivity {
         listView = (ListView) findViewById(R.id.list_view);
         service = CommonService_.getInstance_(this);
 
-        ModelListAdapter adapter = new ModelListAdapter(this, service.getAAModelManager());
+        ModelListAdapter adapter = new ModelListAdapter(this, service.getModelManager());
         listView.setAdapter(adapter);
 
         adapter.addList(service.getTestList());
