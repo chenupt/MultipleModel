@@ -17,14 +17,13 @@
 package github.chenupt.multiplemodel;
 
 import android.content.Context;
-import android.util.Log;
 
 import java.util.Collections;
 import java.util.List;
 
 /**
  * Created by chenupt@gmail.com on 1/7/15.
- * Description :
+ * Description : Control all model to be created or get.
  */
 public abstract class BaseModelManager implements IModelManager {
 
@@ -38,7 +37,6 @@ public abstract class BaseModelManager implements IModelManager {
 
     @Override
     public final BaseItemModel createModel(Context context, String modelType){
-        Log.d(TAG, "createModel: " + modelType);
         BaseItemModel baseItemModel = null;
         Class<?> owner = builder.viewMap.get(modelType);
         try {
@@ -57,7 +55,6 @@ public abstract class BaseModelManager implements IModelManager {
     @Override
     public int getViewType(String modelType){
         if( !builder.indexMap.containsKey(modelType)){
-            Log.d(TAG, builder.indexMap.toString());
             throw new RuntimeException("The list does not contain the modelView:'" + modelType + "'. Please check the ModelBuilder.");
         }
         return builder.indexMap.get(modelType);

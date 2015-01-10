@@ -20,7 +20,7 @@ import android.content.Context;
 
 /**
  * Created by chenupt@gmail.com on 1/7/15.
- * Description :
+ * Description : Create model view for a normal model.
  */
 public class ModelManager extends BaseModelManager {
 

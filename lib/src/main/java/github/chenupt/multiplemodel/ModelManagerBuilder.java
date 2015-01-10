@@ -20,7 +20,7 @@ import java.util.HashMap;
 
 /**
  * Created by chenupt@gmail.com on 1/7/15.
- * Description :
+ * Description : Collect all model view and build a target model manager.
  */
 public class ModelManagerBuilder {
 

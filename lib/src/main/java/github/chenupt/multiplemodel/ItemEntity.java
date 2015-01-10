@@ -22,6 +22,9 @@ import java.util.List;
 /**
  * Created by chenupt@gmail.com on 2014/8/13.
  * Description : SimpleEntity for list item
+ *
+ * 列表实体类，包含每个item项所需要的内容
+ *
  */
 public class ItemEntity<T> implements Serializable{
 

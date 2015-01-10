@@ -25,6 +25,8 @@ import java.util.List;
 /**
  * Created by chenupt@gmail.com on 2014/8/8.
  * Description : Base model view can be extended to show different item views.
+ *
+ * Model View 基类，自定义实现的view需继承此类
  */
 public abstract class BaseItemModel<T> extends FrameLayout {
 

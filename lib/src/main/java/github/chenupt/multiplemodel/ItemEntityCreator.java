@@ -19,7 +19,9 @@ package github.chenupt.multiplemodel;
 
 /**
  * Created by chenupt@gmail.com on 2014/8/13.
- * Description : ItemEntityCreator creator to create SimpleItemEntity
+ * Description : Creator to create ItemEntity
+ *
+ * ItemEntity 生成器
  */
 public class ItemEntityCreator {
 

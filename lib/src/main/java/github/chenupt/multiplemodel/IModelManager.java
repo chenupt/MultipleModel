@@ -21,6 +21,8 @@ import android.content.Context;
 /**
  * Created by chenupt@gmail.com on 1/7/15.
  * Description : Interface new a model.
+ *
+ * Manager接口。负责给adapter管理model view。
  */
 public interface IModelManager {
 
