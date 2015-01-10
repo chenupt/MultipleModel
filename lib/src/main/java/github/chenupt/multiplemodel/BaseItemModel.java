@@ -12,10 +12,10 @@ import java.util.List;
  */
 public abstract class BaseItemModel<T> extends FrameLayout {
 
-    protected SimpleItemEntity<T> model;
-    protected List<SimpleItemEntity<T>> modelList;
+    protected ItemEntity<T> model;
+    protected List<ItemEntity<T>> modelList;
     protected int viewPosition;
-    protected SimpleItemEntity<T> groupModel;
+    protected ItemEntity<T> groupModel;
     protected int groupPosition;
     protected BaseListAdapter adapter;
 
@@ -30,7 +30,7 @@ public abstract class BaseItemModel<T> extends FrameLayout {
     public abstract void bindView();
 
 
-    public void setModel(SimpleItemEntity<T> model, List<SimpleItemEntity<T>> modelList){
+    public void setModel(ItemEntity<T> model, List<ItemEntity<T>> modelList){
         if(this.model != null){
             // 判断数据是否唯一项，如果数据未过期则不进行bindView，显示缓存的view
             if (this.model.isSingleton() && this.model.getTimestamp() == model.getTimestamp()) {
@@ -42,7 +42,7 @@ public abstract class BaseItemModel<T> extends FrameLayout {
         bindView();
     };
 
-    public void setModel(SimpleItemEntity<T> model){
+    public void setModel(ItemEntity<T> model){
         setModel(model, null);
     };
 
@@ -54,7 +54,7 @@ public abstract class BaseItemModel<T> extends FrameLayout {
         this.groupPosition = groupPosition;
     }
 
-    public void setGroupModel(SimpleItemEntity<T> groupModel) {
+    public void setGroupModel(ItemEntity<T> groupModel) {
         this.groupModel = groupModel;
     }
 
@@ -70,11 +70,11 @@ public abstract class BaseItemModel<T> extends FrameLayout {
         adapter.notifyDataSetChanged();
     }
 
-    public List<SimpleItemEntity<T>> getModelList() {
+    public List<ItemEntity<T>> getModelList() {
         return modelList;
     }
 
-    public void setModelList(List<SimpleItemEntity<T>> modelList) {
+    public void setModelList(List<ItemEntity<T>> modelList) {
         this.modelList = modelList;
     }
 }

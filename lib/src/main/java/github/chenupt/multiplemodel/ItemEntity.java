@@ -7,7 +7,7 @@ import java.util.List;
  * Created by chenupt@gmail.com on 2014/8/13.
  * Description : SimpleEntity for list item
  */
-public class SimpleItemEntity<T> implements Serializable{
+public class ItemEntity<T> implements Serializable{
 
     private long id;
     /**
@@ -34,10 +34,6 @@ public class SimpleItemEntity<T> implements Serializable{
      * 数据缓存时间戳
      */
     private long timestamp;
-    /**
-     * 额外保存的数据
-     */
-    private Object extraData;
 
     /**
      * 该数据是否在列表中只有一条
@@ -50,12 +46,12 @@ public class SimpleItemEntity<T> implements Serializable{
      */
     private String tag = "";
 
-    public SimpleItemEntity() {
+    public ItemEntity() {
         // 默认设置数据缓存时间为当前时间戳
         setTimestamp(System.currentTimeMillis());
     }
 
-    public  SimpleItemEntity(T t) {
+    public ItemEntity(T t) {
         this.content = t;
         // 默认设置数据缓存时间为当前时间戳
         setTimestamp(System.currentTimeMillis());
@@ -65,7 +61,7 @@ public class SimpleItemEntity<T> implements Serializable{
         return id;
     }
 
-    public SimpleItemEntity setId(long id) {
+    public ItemEntity setId(long id) {
         this.id = id;
         return this;
     }
@@ -74,7 +70,7 @@ public class SimpleItemEntity<T> implements Serializable{
         return content;
     }
 
-    public SimpleItemEntity setContent(T content) {
+    public ItemEntity setContent(T content) {
         this.content = content;
         return this;
     }
@@ -83,12 +79,12 @@ public class SimpleItemEntity<T> implements Serializable{
         return isCheck;
     }
 
-    public SimpleItemEntity setCheck(boolean isCheck) {
+    public ItemEntity setCheck(boolean isCheck) {
         this.isCheck = isCheck;
         return this;
     }
 
-    public SimpleItemEntity setStatus(int status){
+    public ItemEntity setStatus(int status){
         this.status = status;
         return this;
     }
@@ -101,7 +97,7 @@ public class SimpleItemEntity<T> implements Serializable{
         return modelType;
     }
 
-    public SimpleItemEntity setModelType(String modelType) {
+    public ItemEntity setModelType(String modelType) {
         this.modelType = modelType;
         return this;
     }
@@ -110,7 +106,7 @@ public class SimpleItemEntity<T> implements Serializable{
         return modelView;
     }
 
-    public SimpleItemEntity setModelView(Class<?> modelView) {
+    public ItemEntity setModelView(Class<?> modelView) {
         // 未设置模板类型时
         if(modelType == null){
             // 默认使用类名做modelType
@@ -128,7 +124,7 @@ public class SimpleItemEntity<T> implements Serializable{
      * 当数据为singleton时，可传递从服务端获取而来的timestamp，可不传
      * @param timestamp
      */
-    public SimpleItemEntity setTimestamp(long timestamp) {
+    public ItemEntity setTimestamp(long timestamp) {
         this.timestamp = timestamp;
         return this;
     }
@@ -141,17 +137,8 @@ public class SimpleItemEntity<T> implements Serializable{
      * 设置该数据显示的view是否在列表中唯一，例如海报位
      * @param isSingleton
      */
-    public SimpleItemEntity setSingleton(boolean isSingleton) {
+    public ItemEntity setSingleton(boolean isSingleton) {
         this.isSingleton = isSingleton;
-        return this;
-    }
-
-    public Object getExtraData() {
-        return extraData;
-    }
-
-    public SimpleItemEntity setExtraData(Object extraData) {
-        this.extraData = extraData;
         return this;
     }
 
@@ -159,12 +146,12 @@ public class SimpleItemEntity<T> implements Serializable{
         return tag;
     }
 
-    public SimpleItemEntity setTag(String tag) {
+    public ItemEntity setTag(String tag) {
         this.tag = tag;
         return this;
     }
 
-    public void attach(List<SimpleItemEntity> list){
+    public void attach(List<ItemEntity> list){
         list.add(this);
     }
 }

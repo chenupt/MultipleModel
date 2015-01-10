@@ -3,22 +3,21 @@ package github.chenupt.multiplemodel.aa;
 import android.content.Context;
 
 import github.chenupt.multiplemodel.BaseItemModel;
-import github.chenupt.multiplemodel.ModelFactory;
+import github.chenupt.multiplemodel.BaseModelManager;
+import github.chenupt.multiplemodel.ModelManagerBuilder;
 
 /**
- * Created by chenupt@gmail.com on 14/10/28.
+ * Created by chenupt@gmail.com on 1/7/15.
  * Description : 适用AndroidAnnotations框架，使用build方法实例化view
  */
-public class AAModelFactory extends ModelFactory {
+public class AAModelManager extends BaseModelManager {
 
-    public static final String TAG = "AAModelFactory";
-
-    protected AAModelFactory(Builder builder) {
+    public AAModelManager(ModelManagerBuilder builder) {
         super(builder);
     }
 
     @Override
-    protected BaseItemModel newInstance(Context context, Class<?> owner) throws Exception {
+    public BaseItemModel modelNewInstance(Context context, Class<?> owner) throws Exception {
         return (BaseItemModel) owner.getMethod("build", new Class[]{Context.class}).invoke(owner, context);
     }
 }

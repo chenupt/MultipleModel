@@ -7,8 +7,8 @@ package github.chenupt.multiplemodel;
  */
 public class ItemEntityCreator {
 
-    public static <T> SimpleItemEntity<T> create(T content){
-        return new SimpleItemEntity<T>(content);
+    public static <T> ItemEntity<T> create(T content){
+        return new ItemEntity<T>(content);
     }
 
 }

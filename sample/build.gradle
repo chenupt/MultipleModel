@@ -1,14 +1,14 @@
 apply plugin: 'com.android.application'
-apply plugin: 'maven'
 apply plugin: 'android-apt'
-def AAVersion = '3.0.1'
+def AAVersion = '3.2'
+def appId = "github.chenupt.sample"
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "21.1.1"
+    buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "github.chenupt.sample"
+        applicationId appId
         minSdkVersion 8
         targetSdkVersion 21
         versionCode 1
@@ -28,14 +28,20 @@ android {
 }
 
 dependencies {
-    compile project(":app")
+    compile project(":lib")
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:21.0.0'
-//    compile 'com.wisorg:msc-android-multiplemodel:1.0.0-SNAPSHOT:jar'
+    compile 'com.android.support:appcompat-v7:21.0.3'
 
     apt "org.androidannotations:androidannotations:$AAVersion"
     compile "org.androidannotations:androidannotations-api:$AAVersion"
 }
 
+
+apt {
+    arguments {
+        androidManifestFile variant.outputs[0].processResources.manifestFile
+        resourcePackageName appId
+    }
+}
 
 
