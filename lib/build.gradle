@@ -30,11 +30,4 @@ dependencies {
 }
 
 
-task androidJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-}
-
-artifacts {
-    archives androidJar
-}
 
