@@ -23,7 +23,7 @@ import android.view.ViewGroup;
 
 /**
  * Created by chenupt@gmail.com on 2014/8/8.
- * Description : Simple base adapter for getting multiple item views in list.
+ * Description : Simple base recyclerAdapter for getting multiple item views in list.
  *
  * 继承BaseListAdapter，通过IModelManager来调用model view。
  */

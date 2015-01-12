@@ -17,9 +17,14 @@
 package github.chenupt.multiplemodel;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import java.util.Collections;
 import java.util.List;
+
+import github.chenupt.multiplemodel.recycler.BaseRecyclerAdapter;
+import github.chenupt.multiplemodel.recycler.ModelViewHolder;
 
 /**
  * Created by chenupt@gmail.com on 1/7/15.
@@ -45,6 +50,19 @@ public abstract class BaseModelManager implements IModelManager {
             e.printStackTrace();
         }
         return baseItemModel;
+    }
+
+    @Override
+    public final RecyclerView.ViewHolder createModel(Context context, Class<?> owner, BaseRecyclerAdapter adapter){
+        Log.d(TAG, "createModel: " + owner.getName());
+        BaseItemModel baseItemModel = null;
+        try {
+            // 抽出实例化方法让子类可覆盖
+            baseItemModel = modelNewInstance(context, owner);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new ModelViewHolder(baseItemModel, adapter);
     }
 
     /**
@@ -77,6 +95,16 @@ public abstract class BaseModelManager implements IModelManager {
     @Override
     public boolean isItemViewTypePinned(int type){
         return builder.pinnedMap.get(type);
+    }
+
+    /**
+     * 通过模板类型获取模板
+     * @param viewType
+     * @return
+     */
+    @Override
+    public Class<?> getViewClass(int viewType){
+        return builder.iViewMap.get(viewType);
     }
 
 
