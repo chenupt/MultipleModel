@@ -24,11 +24,11 @@ import android.support.v4.app.FragmentStatePagerAdapter;
  * Created by chenupt@gmail.com on 2014/8/9.
  * Description TODO
  */
-public class SimplePagerAdapter extends FragmentStatePagerAdapter {
+public class ModelPagerAdapter extends FragmentStatePagerAdapter {
 
     protected PagerModelManager pagerModelManager;
 
-    public SimplePagerAdapter(FragmentManager fm, PagerModelManager pagerModelManager) {
+    public ModelPagerAdapter(FragmentManager fm, PagerModelManager pagerModelManager) {
         super(fm);
         this.pagerModelManager = pagerModelManager;
     }
