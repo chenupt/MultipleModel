@@ -17,10 +17,13 @@
 package github.chenupt.multiplemodel;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
 import java.util.List;
+
+import github.chenupt.multiplemodel.recycler.BaseRecyclerAdapter;
 
 /**
  * Created by chenupt@gmail.com on 2014/8/8.
@@ -36,6 +39,8 @@ public abstract class BaseItemModel<T> extends FrameLayout {
     protected ItemEntity<T> groupModel;
     protected int groupPosition;
     protected BaseListAdapter adapter;
+    protected BaseRecyclerAdapter recyclerAdapter;
+    protected RecyclerView.ViewHolder viewHolder;
 
     public BaseItemModel(Context context){
         this(context, null);
@@ -94,5 +99,21 @@ public abstract class BaseItemModel<T> extends FrameLayout {
 
     public void setModelList(List<ItemEntity<T>> modelList) {
         this.modelList = modelList;
+    }
+
+    public BaseRecyclerAdapter getRecyclerAdapter() {
+        return recyclerAdapter;
+    }
+
+    public void setRecyclerAdapter(BaseRecyclerAdapter recyclerAdapter) {
+        this.recyclerAdapter = recyclerAdapter;
+    }
+
+    public RecyclerView.ViewHolder getViewHolder() {
+        return viewHolder;
+    }
+
+    public void setViewHolder(RecyclerView.ViewHolder viewHolder) {
+        this.viewHolder = viewHolder;
     }
 }

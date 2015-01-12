@@ -31,11 +31,13 @@ public class ModelManagerBuilder {
     public HashMap<String, Class<?>> viewMap;  // 模板类型 -> 模板展示View
     public HashMap<String, Integer> indexMap;  // 模板类型 -> 模板指针
     public HashMap<Integer, Boolean> pinnedMap;// 模板指针 -> View是否固定
+    public HashMap<Integer, Class<?>> iViewMap;// 模板指针 -> 模板展示View
 
     public ModelManagerBuilder() {
         viewMap = new HashMap<String, Class<?>>();
         indexMap = new HashMap<String, Integer>();
         pinnedMap = new HashMap<Integer, Boolean>();
+        iViewMap = new HashMap<Integer, Class<?>>();
     }
 
 
@@ -70,6 +72,7 @@ public class ModelManagerBuilder {
             int viewType = viewMap.size() - 1;
             indexMap.put(modelType, viewType);
             pinnedMap.put(viewType, isPinned);
+            iViewMap.put(viewType, viewClass);
         }
         return this;
     }

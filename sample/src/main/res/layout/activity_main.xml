@@ -16,4 +16,9 @@
         android:onClick="toAnnotationActivity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+    <Button
+        android:text="to Recycler Activity"
+        android:onClick="toRecyclerActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>
