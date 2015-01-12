@@ -45,8 +45,8 @@ public class CommonService {
     public List<ItemEntity> getTestList(){
         List<ItemEntity> resultList = new ArrayList<ItemEntity>();
         for (int i = 0; i < testStrings.length; i++) {
-            ItemEntityCreator.create("hello " + testStrings[i]).setModelView(CustomView.class).attach(resultList);
-            ItemEntityCreator.create("hello " + testStrings[i]).setModelView(CustomLargeView.class).attach(resultList);
+            ItemEntityCreator.create(testStrings[i]).setModelView(CustomView.class).attach(resultList);
+            ItemEntityCreator.create(testStrings[i]).setModelView(CustomLargeView.class).attach(resultList);
         }
         return resultList;
     }
@@ -54,8 +54,8 @@ public class CommonService {
     public List<ItemEntity> getAATestList(){
         List<ItemEntity> resultList = new ArrayList<ItemEntity>();
         for (int i = 0; i < testStrings.length; i++) {
-            ItemEntityCreator.create("hello AA " + testStrings[i]).setModelView(AACustomView_.class).attach(resultList);
-            ItemEntityCreator.create("hello AA " + testStrings[i]).setModelView(AACustomLargeView_.class).attach(resultList);
+            ItemEntityCreator.create(testStrings[i]).setModelView(AACustomView_.class).attach(resultList);
+            ItemEntityCreator.create(testStrings[i]).setModelView(AACustomLargeView_.class).attach(resultList);
         }
         return resultList;
     }
