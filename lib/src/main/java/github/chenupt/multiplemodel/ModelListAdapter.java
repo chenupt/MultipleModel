@@ -29,17 +29,17 @@ import android.view.ViewGroup;
  */
 public class ModelListAdapter extends BaseListAdapter<ItemEntity> {
 
-    protected IModelManager modelManager;
+    protected IModelManager iModelManager;
 
     public ModelListAdapter(Context context, IModelManager modelManager) {
         super(context);
-        this.modelManager = modelManager;
+        this.iModelManager = modelManager;
     }
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         if(view == null){
-            view = modelManager.createModel(getContext(), getItem(i).getModelType());
+            view = iModelManager.createModel(getContext(), getItem(i).getModelType());
         }
         ((BaseItemModel)view).setViewPosition(i);
         ((BaseItemModel)view).setModel(getItem(i), getList());
@@ -51,11 +51,11 @@ public class ModelListAdapter extends BaseListAdapter<ItemEntity> {
     @Override
     public int getItemViewType(int position) {
         String type = getItem(position).getModelType();
-        return modelManager.getViewType(type);
+        return iModelManager.getViewType(type);
     }
 
     @Override
     public int getViewTypeCount() {
-        return modelManager.getViewTypeCount();
+        return iModelManager.getViewTypeCount();
     }
 }

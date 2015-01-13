@@ -29,6 +29,8 @@ public class CustomView extends BaseItemModel {
 
     @Override
     public void bindView() {
-        textView.setText(viewPosition + ". " + model.getContent());
+        textView.setText("viewPosition: " + viewPosition
+                + "\ncontent: " + model.getContent()
+                + "\ntype: " + model.getModelType());
     }
 }

@@ -2,7 +2,9 @@ package github.chenupt.sample.views;
 
 import android.content.Context;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EViewGroup;
 import org.androidannotations.annotations.ViewById;
 
@@ -25,6 +27,13 @@ public class AACustomLargeView extends BaseItemModel<String> {
 
     @Override
     public void bindView() {
-        textView.setText(viewPosition + ". " + model.getContent());
+        textView.setText("viewPosition: " + viewPosition
+                + "\ncontent: " + model.getContent()
+                + "\ntype: " + model.getModelType());
+    }
+
+    @Click(R.id.btn)
+    void btnClick(){
+        Toast.makeText(getContext(), "view position is : " + viewPosition, Toast.LENGTH_SHORT).show();
     }
 }
