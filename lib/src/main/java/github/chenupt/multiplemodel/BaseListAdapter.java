@@ -98,6 +98,20 @@ public abstract class BaseListAdapter<T> extends BaseAdapter {
         }
     }
 
+    public T getFirstItem(){
+        if(list != null && list.size() > 0){
+            return list.get(0);
+        }
+        return null;
+    }
+
+    public T getLastItem(){
+        if(list != null && list.size() > 0){
+            return list.get(list.size() - 1);
+        }
+        return null;
+    }
+
     public void addItem(T item){
         this.list.add(item);
     }
