@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'signing'
+apply plugin: 'maven'
 
 android {
     compileSdkVersion 21
@@ -15,12 +17,6 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_7
         targetCompatibility JavaVersion.VERSION_1_7
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
 
 }
 
@@ -30,6 +26,65 @@ dependencies {
     compile "com.android.support:recyclerview-v7:21.0.0"
 }
 
+ext {
+    artifactId = 'multiplemodel'
+}
+
+configurations {
+    archives {
+        extendsFrom configurations.default
+    }
+}
+
+signing {
+    required { has("release") && gradle.taskGraph.hasTask("uploadArchives") }
+    sign configurations.archives
+}
+
+uploadArchives {
+    configuration = configurations.archives
+    repositories.mavenDeployer {
+        beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+        repository(url: sonatypeRepo) {
+            authentication(userName: sonatypeUsername,
+                    password: sonatypePassword)
+        }
+
+        pom.groupId = parent.ext.groupId
+        pom.artifactId = project.ext.artifactId
+        pom.version = parent.version
+
+        pom.project {
+            name 'Android MultipleModel'
+            packaging 'aar'
+            description 'Create list fastly.'
+            url 'https://github.com/chenupt/MultipleModel'
+
+            scm {
+                url 'https:github.com/chenupt/MultipleModel.git'
+                connection 'scm:git@github.com:VandalSoftware/android-cache-lib.git'
+                developerConnection 'scm:git@github.com:VandalSoftware/android-cache-lib.git'
+            }
+
+            licenses {
+                license {
+                    name 'The Apache Software License, Version 2.0'
+                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    distribution 'repo'
+                }
+            }
+
+            developers {
+                developer {
+                    id 'chenupt'
+                    name 'Chenupt'
+                    email 'chenupt@gmail.com'
+                }
+            }
+        }
+    }
+}
 
 
 
