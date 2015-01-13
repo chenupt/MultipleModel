@@ -17,7 +17,9 @@
 package github.chenupt.multiplemodel;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by chenupt@gmail.com on 2014/8/13.
@@ -64,6 +66,11 @@ public class ItemEntity<T> implements Serializable{
      * 设置单一项的tag，方便寻找到特定的item
      */
     private String tag = "";
+
+    /**
+     * 附件属性
+     */
+    private Map<String, Object> attrs;
 
     public ItemEntity() {
         // 默认设置数据缓存时间为当前时间戳
@@ -168,6 +175,46 @@ public class ItemEntity<T> implements Serializable{
     public ItemEntity setTag(String tag) {
         this.tag = tag;
         return this;
+    }
+
+    public Map<String, Object> getAttrs() {
+        return attrs;
+    }
+
+    public ItemEntity<T> setAttrs(Map<String, Object> attrs) {
+        this.attrs = attrs;
+        return this;
+    }
+
+    public ItemEntity<T> addAttr(String key, Object value){
+        if(attrs == null){
+            attrs = new HashMap<String, Object>();
+        }
+        attrs.put(key, value);
+        return this;
+    }
+
+    public <T> T  getAttr(String key, Class<T> c){
+        if(attrs == null) {
+            return null;
+        }
+        return (T) attrs.get(key);
+    }
+
+    public boolean hasAttr(String key){
+        if(attrs == null){
+            return false;
+        }
+        if(attrs.get(key) == null){
+            return false;
+        }
+        return true;
+    }
+
+    public void removeAttr(String key){
+        if(attrs.get(key) != null){
+            attrs.remove(key);
+        }
     }
 
     public void attach(List<ItemEntity> list){
