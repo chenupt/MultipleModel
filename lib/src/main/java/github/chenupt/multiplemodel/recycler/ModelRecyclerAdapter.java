@@ -46,6 +46,7 @@ public class ModelRecyclerAdapter extends BaseRecyclerAdapter<ItemEntity> {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
+        ((ModelViewHolder)viewHolder).getView().setViewPosition(position);
         ((ModelViewHolder)viewHolder).getView().setModel(getItem(position));
     }
 
