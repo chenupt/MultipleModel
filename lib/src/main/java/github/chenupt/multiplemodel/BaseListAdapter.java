@@ -31,12 +31,10 @@ import java.util.List;
 public abstract class BaseListAdapter<T> extends BaseAdapter {
 
     protected List<T> list;
-    protected List<T> lazyList;
     protected Context context;
     
     public BaseListAdapter(Context context) {
         list = new ArrayList<T>();
-        lazyList = new ArrayList<T>();
         this.context = context;
     }
 
@@ -78,24 +76,6 @@ public abstract class BaseListAdapter<T> extends BaseAdapter {
 
     public void removeList(List<T> list){
         this.list.removeAll(list);
-    }
-
-
-    /**
-     * 将缓存的数据添加到list
-     */
-    public void addLazyDataToList(){
-        this.list.addAll(lazyList);
-    }
-
-    /**
-     * 保存缓存数据
-     * @param list
-     */
-    public void saveLazyList(List<T> list){
-        if(list != null){
-            this.lazyList = list;
-        }
     }
 
     public T getFirstItem(){
