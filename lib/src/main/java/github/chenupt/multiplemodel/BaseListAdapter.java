@@ -26,7 +26,6 @@ import java.util.List;
  * Created by chenupt@gmail.com on 2014/5/18.
  * Description : Base list recyclerAdapter with some list functions
  *
- * 基本的Adapter。可适用于ListView 和 GridView，数据结构为List。
  */
 public abstract class BaseListAdapter<T> extends BaseAdapter {
 

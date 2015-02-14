@@ -25,7 +25,4 @@ public class MainActivity extends ActionBarActivity {
         startActivity(new Intent(this, AAListActivity_.class));
     }
 
-    public void toRecyclerActivity(View view) {
-        startActivity(new Intent(this, RecyclerViewActivity.class));
-    }
 }

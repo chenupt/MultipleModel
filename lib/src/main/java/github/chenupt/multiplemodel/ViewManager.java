@@ -22,10 +22,10 @@ import java.util.HashMap;
  * Created by chenupt@gmail.com on 1/7/15.
  * Description : Collect all model view and build a target model manager.
  */
-public class ModelManagerBuilder {
+public class ViewManager {
 
-    public static ModelManagerBuilder begin(){
-        return new ModelManagerBuilder();
+    public static ViewManager begin(){
+        return new ViewManager();
     }
 
     public HashMap<String, Class<?>> viewMap;  // 模板类型 -> 模板展示View
@@ -33,40 +33,30 @@ public class ModelManagerBuilder {
     public HashMap<Integer, Boolean> pinnedMap;// 模板指针 -> View是否固定
     public HashMap<Integer, Class<?>> iViewMap;// 模板指针 -> 模板展示View
 
-    public ModelManagerBuilder() {
+    public ViewManager() {
         viewMap = new HashMap<String, Class<?>>();
         indexMap = new HashMap<String, Integer>();
         pinnedMap = new HashMap<Integer, Boolean>();
         iViewMap = new HashMap<Integer, Class<?>>();
     }
 
-
-    public <T> T build(Class<T> modelManager){
-        try {
-            return modelManager.getConstructor(ModelManagerBuilder.class).newInstance(this);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
-    public ModelManagerBuilder addModel(Class<?> viewClass) {
+    public ViewManager addModel(Class<?> viewClass) {
         return addModel(viewClass, false);
     }
 
-    public ModelManagerBuilder addModel(Class<?> viewClass, boolean isPinned) {
+    public ViewManager addModel(Class<?> viewClass, boolean isPinned) {
         return addToMap(getModelTypeName(viewClass), viewClass, isPinned);
     }
 
-    public ModelManagerBuilder addModel(String modelType, Class<?> viewClass) {
+    public ViewManager addModel(String modelType, Class<?> viewClass) {
         return addModel(modelType, viewClass, false);
     }
 
-    public ModelManagerBuilder addModel(String modelType, Class<?> viewClass, boolean isPinned) {
+    public ViewManager addModel(String modelType, Class<?> viewClass, boolean isPinned) {
         return addToMap(modelType, viewClass, isPinned);
     }
 
-    private ModelManagerBuilder addToMap(String modelType, Class<?> viewClass, boolean isPinned) {
+    private ViewManager addToMap(String modelType, Class<?> viewClass, boolean isPinned) {
         if (!viewMap.containsKey(modelType)) {
             viewMap.put(modelType, viewClass);
             int viewType = viewMap.size() - 1;

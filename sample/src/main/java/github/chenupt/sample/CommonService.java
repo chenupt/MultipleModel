@@ -8,9 +8,7 @@ import java.util.List;
 
 import github.chenupt.multiplemodel.ItemEntity;
 import github.chenupt.multiplemodel.ItemEntityCreator;
-import github.chenupt.multiplemodel.ModelManager;
-import github.chenupt.multiplemodel.ModelManagerBuilder;
-import github.chenupt.multiplemodel.aa.AAModelManager;
+import github.chenupt.multiplemodel.ViewManager;
 import github.chenupt.sample.views.AACustomLargeView_;
 import github.chenupt.sample.views.AACustomView_;
 import github.chenupt.sample.views.CustomLargeView;
@@ -26,20 +24,19 @@ public class CommonService {
     @StringArrayRes(R.array.test_strings)
     String[] testStrings;
 
-    public ModelManager getModelManager(){
-        return ModelManagerBuilder
+
+    public ViewManager getModelManagerBuilder(){
+        return ViewManager
                 .begin()
                 .addModel(CustomView.class)
-                .addModel(CustomLargeView.class)
-                .build(ModelManager.class);
+                .addModel(CustomLargeView.class);
     }
 
-    public AAModelManager getAAModelManager(){
-        return ModelManagerBuilder
+    public ViewManager getAAModelManagerBuilder(){
+        return ViewManager
                 .begin()
                 .addModel(AACustomView_.class)
-                .addModel(AACustomLargeView_.class)
-                .build(AAModelManager.class);
+                .addModel(AACustomLargeView_.class);
     }
 
     public List<ItemEntity> getTestList(){

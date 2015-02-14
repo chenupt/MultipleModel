@@ -4,14 +4,14 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.widget.TextView;
 
-import github.chenupt.multiplemodel.BaseItemModel;
+import github.chenupt.multiplemodel.BaseItemView;
 import github.chenupt.sample.R;
 
 /**
  * Created by chenupt@gmail.com on 11/26/14.
  * Description :
  */
-public class CustomView extends BaseItemModel {
+public class CustomView extends BaseItemView<String> {
 
     private TextView textView;
 

@@ -17,23 +17,23 @@
 package github.chenupt.multiplemodel.aa;
 
 import android.content.Context;
+import android.view.View;
 
-import github.chenupt.multiplemodel.BaseItemModel;
-import github.chenupt.multiplemodel.BaseModelManager;
-import github.chenupt.multiplemodel.ModelManagerBuilder;
+import github.chenupt.multiplemodel.ModelListAdapter;
+import github.chenupt.multiplemodel.ViewManager;
 
 /**
- * Created by chenupt@gmail.com on 1/7/15.
- * Description : 适用AndroidAnnotations框架，使用build方法实例化view
+ * Created by chenupt@gmail.com on 2015/2/14.
+ * Description TODO
  */
-public class AAModelManager extends BaseModelManager {
+public class AAModelListAdapter extends ModelListAdapter {
 
-    public AAModelManager(ModelManagerBuilder builder) {
-        super(builder);
+    public AAModelListAdapter(Context context, ViewManager modelManager) {
+        super(context, modelManager);
     }
 
     @Override
-    public BaseItemModel modelNewInstance(Context context, Class<?> owner) throws Exception {
-        return (BaseItemModel) owner.getMethod("build", new Class[]{Context.class}).invoke(owner, context);
+    public View modelNewInstance(Context context, Class<?> owner) throws Exception {
+        return (View)owner.getMethod("build", new Class[]{Context.class}).invoke(owner, context);
     }
 }

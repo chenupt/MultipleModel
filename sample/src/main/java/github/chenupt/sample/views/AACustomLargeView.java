@@ -8,7 +8,7 @@ import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EViewGroup;
 import org.androidannotations.annotations.ViewById;
 
-import github.chenupt.multiplemodel.BaseItemModel;
+import github.chenupt.multiplemodel.BaseItemView;
 import github.chenupt.sample.R;
 
 /**
@@ -16,7 +16,7 @@ import github.chenupt.sample.R;
  * Description :
  */
 @EViewGroup(R.layout.view_item_custom_large)
-public class AACustomLargeView extends BaseItemModel<String> {
+public class AACustomLargeView extends BaseItemView<String> {
 
     @ViewById(R.id.text_view)
     TextView textView;

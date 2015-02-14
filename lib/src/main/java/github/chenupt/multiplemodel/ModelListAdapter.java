@@ -20,42 +20,94 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.Collections;
+import java.util.List;
+
 
 /**
  * Created by chenupt@gmail.com on 2014/8/8.
- * Description : Simple base recyclerAdapter for getting multiple item views in list.
+ * Description : Simple base list adapter for getting multiple item views in list.
  *
- * 继承BaseListAdapter，通过IModelManager来调用model view。
+ *
  */
 public class ModelListAdapter extends BaseListAdapter<ItemEntity> {
 
-    protected IModelManager iModelManager;
+    public ViewManager viewManager;
 
-    public ModelListAdapter(Context context, IModelManager modelManager) {
+    public ModelListAdapter(Context context, ViewManager manager) {
         super(context);
-        this.iModelManager = modelManager;
+        this.viewManager = manager;
     }
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         if(view == null){
-            view = iModelManager.createModel(getContext(), getItem(i).getModelType());
+            Class<?> owner = viewManager.viewMap.get(getItem(i).getModelType());
+            try {
+                view = modelNewInstance(context, owner);
+            } catch (Exception e) {
+                e.printStackTrace();
+                throw new RuntimeException("The view:" + getItem(i).getModelView().getName() + " is null. Please check your layout");
+            }
         }
-        ((BaseItemModel)view).setViewPosition(i);
-        ((BaseItemModel)view).setModel(getItem(i), getList());
-        ((BaseItemModel)view).setAdapter(this);
+        if (view instanceof IPosition){
+            ((IPosition)view).bindViewPosition(i);
+        }
+        if (view instanceof IItemView){
+            ((IItemView)view).bindView(getItem(i));
+        }
         return view;
     }
 
+    public View modelNewInstance(Context context, Class<?> owner) throws Exception {
+        return (View) owner.getConstructor(Context.class).newInstance(context);
+    }
 
     @Override
     public int getItemViewType(int position) {
-        String type = getItem(position).getModelType();
-        return iModelManager.getViewType(type);
+        String modelType = getItem(position).getModelType();
+        if( !viewManager.indexMap.containsKey(modelType)){
+            throw new RuntimeException("The list does not contain the modelView:'" + modelType + "'. Please check the ModelBuilder.");
+        }
+        return viewManager.indexMap.get(modelType);
     }
 
     @Override
     public int getViewTypeCount() {
-        return iModelManager.getViewTypeCount();
+        return viewManager.viewMap.size();
+    }
+
+
+
+    /**
+     * get the tag item at the start.
+     * @param list  list data
+     * @param tag   tag value
+     * @return      item model
+     */
+    public ItemEntity getStartItemByTag(List<ItemEntity> list, String tag){
+        for (ItemEntity entity : list) {
+            if (entity.getTag().equals(tag)){
+                return entity;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * get the tag item at the end.
+     * @param list  list data
+     * @param tag   tag value
+     * @return      item model
+     */
+    public ItemEntity getEndItemByTag(List<ItemEntity> list, String tag){
+        Collections.reverse(list);
+        for (ItemEntity entity : list) {
+            if (entity.getTag().equals(tag)){
+                Collections.reverse(list);
+                return entity;
+            }
+        }
+        return null;
     }
 }

@@ -16,20 +16,13 @@
 
 package github.chenupt.multiplemodel;
 
-import android.content.Context;
-
 /**
- * Created by chenupt@gmail.com on 1/7/15.
- * Description : Create model view for a normal model.
+ * Created by chenupt@gmail.com on 2015/2/13.
+ * Description TODO
  */
-public class ModelManager extends BaseModelManager {
+public interface IPosition {
 
-    public ModelManager(ModelManagerBuilder builder) {
-        super(builder);
-    }
+    public void bindViewPosition(int viewPosition);
+    public void bindGroupPosition(int groupPosition);
 
-    @Override
-    public BaseItemModel modelNewInstance(Context context, Class<?> owner) throws Exception {
-        return (BaseItemModel) owner.getConstructor(Context.class).newInstance(context);
-    }
 }

@@ -6,7 +6,7 @@ import android.widget.TextView;
 import org.androidannotations.annotations.EViewGroup;
 import org.androidannotations.annotations.ViewById;
 
-import github.chenupt.multiplemodel.BaseItemModel;
+import github.chenupt.multiplemodel.BaseItemView;
 import github.chenupt.sample.R;
 
 /**
@@ -14,7 +14,7 @@ import github.chenupt.sample.R;
  * Description :
  */
 @EViewGroup(R.layout.view_item_custom)
-public class AACustomView extends BaseItemModel<String> {
+public class AACustomView extends BaseItemView<String> {
 
     @ViewById(R.id.text_view)
     TextView textView;

@@ -8,7 +8,7 @@ import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
-import github.chenupt.multiplemodel.ModelListAdapter;
+import github.chenupt.multiplemodel.aa.AAModelListAdapter;
 import github.chenupt.sample.CommonService;
 import github.chenupt.sample.R;
 
@@ -28,7 +28,7 @@ public class AAListActivity extends ActionBarActivity {
 
     @AfterViews
     void afterViews(){
-        ModelListAdapter adapter = new ModelListAdapter(this, service.getAAModelManager());
+        AAModelListAdapter adapter = new AAModelListAdapter(this, service.getAAModelManagerBuilder());
         listView.setAdapter(adapter);
 
         adapter.addList(service.getAATestList());
