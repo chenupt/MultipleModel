@@ -68,18 +68,17 @@ public class ItemEntity<T> implements Serializable{
     private String tag = "";
 
     /**
-     * 附件属性
+     * extra data
      */
     private Map<String, Object> attrs;
 
     public ItemEntity() {
-        // 默认设置数据缓存时间为当前时间戳
-        setTimestamp(System.currentTimeMillis());
+        this(null);
     }
 
     public ItemEntity(T t) {
         this.content = t;
-        // 默认设置数据缓存时间为当前时间戳
+        // set the default cache timestamp
         setTimestamp(System.currentTimeMillis());
     }
 
@@ -220,4 +219,5 @@ public class ItemEntity<T> implements Serializable{
     public void attach(List<ItemEntity> list){
         list.add(this);
     }
+
 }

@@ -50,7 +50,9 @@ public abstract class BaseItemView<T> extends FrameLayout implements IItemView<T
 
     @Override
     public void bindView(ItemEntity<T> model) {
-        if(model.isSingleton() && this.model.getTimestamp() != model.getTimestamp()){
+        // Singleton depends on view's model saved last time.
+        // If your item view does not extend from BaseItemView, you should check the cache timestamp if you need.
+        if(ItemEntityUtil.checkCache(this.model, model)){
             setModel(model);
             bindView();
         }

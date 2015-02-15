@@ -23,10 +23,26 @@ package github.chenupt.multiplemodel;
  *
  * ItemEntity 生成器
  */
-public class ItemEntityCreator {
+public class ItemEntityUtil {
 
+    /**
+     * Create a new ItemEntity.
+     * @param content
+     * @param <T>
+     * @return
+     */
     public static <T> ItemEntity<T> create(T content){
         return new ItemEntity<T>(content);
+    }
+
+    /**
+     * Check the cache timestamp.
+     * @param oldEntity
+     * @param newEntity
+     * @return should update the cache
+     */
+    public static boolean checkCache(ItemEntity oldEntity, ItemEntity newEntity){
+        return oldEntity != null && newEntity.isSingleton() && oldEntity.getTimestamp() != newEntity.getTimestamp();
     }
 
 }
