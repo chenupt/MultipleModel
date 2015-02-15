@@ -50,8 +50,10 @@ public abstract class BaseItemView<T> extends FrameLayout implements IItemView<T
 
     @Override
     public void bindView(ItemEntity<T> model) {
-        setModel(model);
-        bindView();
+        if(model.isSingleton() && this.model.getTimestamp() != model.getTimestamp()){
+            setModel(model);
+            bindView();
+        }
     }
 
     @Override
