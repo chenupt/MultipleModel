@@ -18,17 +18,17 @@ package github.chenupt.multiplemodel.viewpager;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 
 /**
  * Created by chenupt@gmail.com on 2014/8/9.
  * Description TODO
  */
-public class ModelPagerAdapter extends FragmentPagerAdapter {
+public class ModelStatePagerAdapter extends FragmentStatePagerAdapter {
 
     protected PagerModelManager pagerModelManager;
 
-    public ModelPagerAdapter(FragmentManager fm, PagerModelManager pagerModelManager) {
+    public ModelStatePagerAdapter(FragmentManager fm, PagerModelManager pagerModelManager) {
         super(fm);
         this.pagerModelManager = pagerModelManager;
     }
