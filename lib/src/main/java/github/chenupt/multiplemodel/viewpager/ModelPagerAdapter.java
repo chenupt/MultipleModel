@@ -26,27 +26,27 @@ import android.support.v4.app.FragmentPagerAdapter;
  */
 public class ModelPagerAdapter extends FragmentPagerAdapter {
 
-    protected PagerModelManager pagerModelManager;
+    protected PagerManager pagerManager;
 
-    public ModelPagerAdapter(FragmentManager fm, PagerModelManager pagerModelManager) {
+    public ModelPagerAdapter(FragmentManager fm, PagerManager pagerManager) {
         super(fm);
-        this.pagerModelManager = pagerModelManager;
+        this.pagerManager = pagerManager;
     }
 
     @Override
     public Fragment getItem(int position) {
-        return pagerModelManager.getItem(position);
+        return pagerManager.getItem(position);
     }
 
     @Override
     public int getCount() {
-        return pagerModelManager.getFragmentCount();
+        return pagerManager.getFragmentCount();
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        if(pagerModelManager.hasTitles()){
-            return pagerModelManager.getTitle(position);
+        if(pagerManager.hasTitles()){
+            return pagerManager.getTitle(position);
         }
         return super.getPageTitle(position);
     }

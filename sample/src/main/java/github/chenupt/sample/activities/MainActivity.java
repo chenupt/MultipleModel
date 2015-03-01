@@ -25,4 +25,8 @@ public class MainActivity extends ActionBarActivity {
         startActivity(new Intent(this, AAListActivity_.class));
     }
 
+    public void toViewPagerActivity(View view) {
+        startActivity(new Intent(this, ViewPagerActivity.class));
+    }
+
 }

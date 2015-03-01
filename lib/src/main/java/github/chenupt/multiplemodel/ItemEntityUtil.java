@@ -17,6 +17,10 @@
 package github.chenupt.multiplemodel;
 
 
+import android.support.v4.app.Fragment;
+
+import github.chenupt.multiplemodel.viewpager.PagerManager;
+
 /**
  * Created by chenupt@gmail.com on 2014/8/13.
  * Description : Creator to create ItemEntity
@@ -43,6 +47,10 @@ public class ItemEntityUtil {
      */
     public static boolean checkCache(ItemEntity oldEntity, ItemEntity newEntity){
         return oldEntity != null && newEntity.isSingleton() && oldEntity.getTimestamp() != newEntity.getTimestamp();
+    }
+
+    public static ItemEntity getModelData(Fragment fragment){
+        return (ItemEntity) fragment.getArguments().getSerializable(PagerManager.DATA);
     }
 
 }

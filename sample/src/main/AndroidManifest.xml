@@ -26,8 +26,8 @@
             android:label="AAListActivity">
         </activity>
         <activity
-            android:name=".activities.RecyclerViewActivity"
-            android:label="RecyclerViewActivity">
+            android:name=".activities.ViewPagerActivity"
+            android:label="ViewPagerActivity">
         </activity>
     </application>
 

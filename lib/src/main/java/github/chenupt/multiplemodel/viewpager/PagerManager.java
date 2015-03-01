@@ -20,6 +20,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import github.chenupt.multiplemodel.ItemEntity;
@@ -28,14 +29,18 @@ import github.chenupt.multiplemodel.ItemEntity;
  * Created by chenupt@gmail.com on 2014/8/9.
  * Description TODO
  */
-public class PagerModelManager {
+public class PagerManager {
+
+    public static PagerManager begin(){
+        return new PagerManager();
+    }
 
     public final static String DATA = "data";
 
     private List<String> titleList;
     private List<Fragment> fragmentList;
 
-    public PagerModelManager() {
+    public PagerManager() {
         titleList = new ArrayList<String>();
         fragmentList = new ArrayList<Fragment>();
     }
@@ -56,18 +61,18 @@ public class PagerModelManager {
         return titleList.get(position);
     }
 
-    public PagerModelManager addFragment(Fragment fragment, String title){
+    public PagerManager addFragment(Fragment fragment, String title){
         titleList.add(title);
         addFragment(fragment);
         return this;
     }
 
-    public PagerModelManager addFragment(Fragment fragment){
+    public PagerManager addFragment(Fragment fragment){
         fragmentList.add(fragment);
         return this;
     }
 
-    public PagerModelManager addFragment(List<ItemEntity> dataList){
+    public PagerManager addFragments(List<ItemEntity> dataList){
         try {
             for (ItemEntity itemEntity : dataList) {
                 Fragment fragment = (Fragment) itemEntity.getModelView().newInstance();
@@ -84,5 +89,14 @@ public class PagerModelManager {
         return this;
     }
 
+    public PagerManager setTitles(List<String> titleList){
+        this.titleList = titleList;
+        return this;
+    }
+
+    public PagerManager setTitles(String[] titleList){
+        this.titleList = Arrays.asList(titleList);
+        return this;
+    }
 
 }
