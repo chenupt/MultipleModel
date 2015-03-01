@@ -17,11 +17,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <Button
-        android:text="to Recycler Activity"
-        android:onClick="toRecyclerActivity"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <Button
         android:text="to ViewPager Activity"
         android:onClick="toViewPagerActivity"
         android:layout_width="match_parent"
