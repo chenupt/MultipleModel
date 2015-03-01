@@ -24,7 +24,7 @@ import java.util.List;
 
 /**
  * Created by chenupt@gmail.com on 2014/5/18.
- * Description : Base list recyclerAdapter with some list functions
+ * Description : Base list Adapter with some list functions.
  *
  */
 public abstract class BaseListAdapter<T> extends BaseAdapter {

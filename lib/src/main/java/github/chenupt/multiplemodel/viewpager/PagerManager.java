@@ -27,7 +27,7 @@ import github.chenupt.multiplemodel.ItemEntity;
 
 /**
  * Created by chenupt@gmail.com on 2014/8/9.
- * Description TODO
+ * Description : Manage fragments to be used by adapter.
  */
 public class PagerManager {
 

@@ -27,8 +27,6 @@ import java.util.List;
 /**
  * Created by chenupt@gmail.com on 2014/8/8.
  * Description : Simple base list adapter for getting multiple item views in list.
- *
- *
  */
 public class ModelListAdapter extends BaseListAdapter<ItemEntity> {
 

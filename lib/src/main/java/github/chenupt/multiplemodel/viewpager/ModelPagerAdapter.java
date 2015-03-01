@@ -22,7 +22,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 /**
  * Created by chenupt@gmail.com on 2014/8/9.
- * Description TODO
+ * Description : ViewPager adapter extends FragmentPagerAdapter
  */
 public class ModelPagerAdapter extends FragmentPagerAdapter {
 

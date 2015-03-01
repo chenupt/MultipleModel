@@ -18,7 +18,10 @@ package github.chenupt.multiplemodel;
 
 /**
  * Created by chenupt@gmail.com on 2015/2/13.
- * Description TODO
+ * Description :
+ *
+ * Your item view should implement this so you could bind item view
+ * with its data if you have not extended {@link github.chenupt.multiplemodel.BaseItemView}.
  */
 public interface IItemView<T> {
 

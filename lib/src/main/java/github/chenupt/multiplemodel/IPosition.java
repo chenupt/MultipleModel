@@ -18,7 +18,10 @@ package github.chenupt.multiplemodel;
 
 /**
  * Created by chenupt@gmail.com on 2015/2/13.
- * Description TODO
+ * Description :
+ *
+ * You should implement it when you want to get its position
+ * if you have not extended {@link github.chenupt.multiplemodel.BaseItemView}.
  */
 public interface IPosition {
 

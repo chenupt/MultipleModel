@@ -25,45 +25,42 @@ import java.util.Map;
  * Created by chenupt@gmail.com on 2014/8/13.
  * Description : SimpleEntity for list item
  *
- * 列表实体类，包含每个item项所需要的内容
- *
  */
 public class ItemEntity<T> implements Serializable{
 
     private long id;
     /**
-     * 模板显示内容数据
+     * The content you want to set for item.
      */
     private T content;
     /**
-     * 当前项是否选中
+     * Item check message.
      */
     private boolean isCheck;
     /**
-     * 当前状态
+     * Current status for item
      */
     private int status;
     /**
-     * 模板类型，默认使用类名
+     * The type name of your item view. Default is the item view class name.
      */
     private String modelType;
     /**
-     * 模板显示view
+     * The class of your item view.
      */
     private Class<?> modelView;
     /**
-     * 数据缓存时间戳
+     * Be used for cache.
      */
     private long timestamp;
 
     /**
-     * 该数据是否在列表中只有一条
-     * 设置true时，列表只进行一次bingView，从而提高列表滑动效率
+     * Set true the item view will be bind only once.You could reset the timestamp for updating.
      */
     private boolean isSingleton;
 
     /**
-     * 设置单一项的tag，方便寻找到特定的item
+     * Tag for item.
      */
     private String tag = "";
 
@@ -132,9 +129,7 @@ public class ItemEntity<T> implements Serializable{
     }
 
     public ItemEntity setModelView(Class<?> modelView) {
-        // 未设置模板类型时
         if(modelType == null){
-            // 默认使用类名做modelType
             setModelType(modelView.getName());
         }
         this.modelView = modelView;
@@ -146,7 +141,8 @@ public class ItemEntity<T> implements Serializable{
     }
 
     /**
-     * 当数据为singleton时，可传递从服务端获取而来的timestamp，可不传
+     * You could set the timestamp from your net or db if you set singleton true for this item,
+     * or ItemEntity would set the current time for its cache timestamp.
      * @param timestamp
      */
     public ItemEntity setTimestamp(long timestamp) {
@@ -159,7 +155,8 @@ public class ItemEntity<T> implements Serializable{
     }
 
     /**
-     * 设置该数据显示的view是否在列表中唯一，例如海报位
+     * It would call bindView only once if set it true.
+     * Just like a poster in your ListView.
      * @param isSingleton
      */
     public ItemEntity setSingleton(boolean isSingleton) {

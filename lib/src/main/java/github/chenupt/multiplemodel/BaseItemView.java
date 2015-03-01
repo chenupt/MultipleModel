@@ -22,7 +22,7 @@ import android.widget.FrameLayout;
 
 /**
  * Created by chenupt@gmail.com on 2015/2/13.
- * Description TODO
+ * Description : Your item view could extend this for its itemEntity and position.
  */
 public abstract class BaseItemView<T> extends FrameLayout implements IItemView<T>, IPosition{
 

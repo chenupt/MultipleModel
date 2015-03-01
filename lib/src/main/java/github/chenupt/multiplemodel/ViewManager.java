@@ -28,10 +28,10 @@ public class ViewManager {
         return new ViewManager();
     }
 
-    public HashMap<String, Class<?>> viewMap;  // 模板类型 -> 模板展示View
-    public HashMap<String, Integer> indexMap;  // 模板类型 -> 模板指针
-    public HashMap<Integer, Boolean> pinnedMap;// 模板指针 -> View是否固定
-    public HashMap<Integer, Class<?>> iViewMap;// 模板指针 -> 模板展示View
+    public HashMap<String, Class<?>> viewMap;  // view type - > view class
+    public HashMap<String, Integer> indexMap;  // view type - > view type index
+    public HashMap<Integer, Boolean> pinnedMap;// view type index - > pinned
+    public HashMap<Integer, Class<?>> iViewMap;// view type index - > view class
 
     public ViewManager() {
         viewMap = new HashMap<String, Class<?>>();

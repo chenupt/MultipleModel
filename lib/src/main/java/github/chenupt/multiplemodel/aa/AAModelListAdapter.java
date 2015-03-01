@@ -24,7 +24,7 @@ import github.chenupt.multiplemodel.ViewManager;
 
 /**
  * Created by chenupt@gmail.com on 2015/2/14.
- * Description TODO
+ * Description : AndroidAnnotation list adapter
  */
 public class AAModelListAdapter extends ModelListAdapter {
 
