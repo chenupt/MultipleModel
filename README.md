@@ -1,12 +1,20 @@
 MultipleModel
 =============
 
-A library to create multiple model view fast.
+A library to create multiple item view fast.
 
 The sample app: [click me]()
 
 #Usage
-
+Add the dependency to your build.gradle.
+```
+maven {
+    url "https://oss.sonatype.org/content/repositories/snapshots/"
+}
+dependencies {
+    compile 'com.github.chenupt.android:multiplemodel:1.2.0-SNAPSHOT@aar'
+}
+```
 ### ListView & GridView & Spinner e.t.c
 
 Just use [ModelListAdapter]().

@@ -4,7 +4,7 @@ apply plugin: 'maven'
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "21.1.1"
+    buildToolsVersion "21.1.2"
 
     defaultConfig {
         minSdkVersion 8
@@ -22,8 +22,8 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:support-v4:21.0.0'
-    compile "com.android.support:recyclerview-v7:21.0.0"
+    compile 'com.android.support:support-v4:21.0.3'
+    compile "com.android.support:recyclerview-v7:21.0.3"
 }
 
 ext {
@@ -46,7 +46,7 @@ uploadArchives {
     repositories.mavenDeployer {
         beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
-        repository(url: sonatypeRepo) {
+        repository(url: sonatypeRepoS) {
             authentication(userName: sonatypeUsername,
                     password: sonatypePassword)
         }
