@@ -1,9 +1,9 @@
 MultipleModel
 =============
 
-A library to create multiple item view fast.
+A library to create multiple item view fast. It is used in [DragTopLayout](https://github.com/chenupt/DragTopLayout) and [SpringIndicator](https://github.com/chenupt/SpringIndicator).
 
-The sample app: [click me]()
+The sample app: [click me](https://github.com/chenupt/MultipleModel/tree/master/imgs/sample-debug_1.2.0.apk).
 
 #Usage
 Add the dependency to your build.gradle.
@@ -17,14 +17,14 @@ dependencies {
 ```
 ### ListView & GridView & Spinner e.t.c
 
-Just use [ModelListAdapter]().
+Just use [ModelListAdapter](https://github.com/chenupt/MultipleModel/blob/master/lib%2Fsrc%2Fmain%2Fjava%2Fgithub%2Fchenupt%2Fmultiplemodel%2FModelListAdapter.java) which extends BaseAdapter.
 
 ```
 ModelListAdapter adapter = new ModelListAdapter(this, getModelManagerBuilder());
 listView.setAdapter(adapter);
 ```
 The getModelManagerBuilder() is used for creating a [ViewManager]() to setup your all item view types.
-You could return a ViewPager like this:
+You could return a ViewManager like this:
 ```
 public ViewManager getModelManagerBuilder(){
         return ViewManager
@@ -33,27 +33,29 @@ public ViewManager getModelManagerBuilder(){
         .addModel(CustomLargeView.class);
 }
 ```
-Now we can add some data to the adapter.Use ItemEntityUtil to create a ItemEntity to a list and set the adapter finally.
+Now we can add some data to the adapter. Use ItemEntityUtil to create a ItemEntity to a list and set the adapter finally.
 ```
     public List<ItemEntity> getTestList(){
         List<ItemEntity> resultList = new ArrayList<ItemEntity>();
         for (int i = 0; i < testStrings.length; i++) {
             // testStrings[i] is some data you want to set this item so you could use when bindview.
             ItemEntityUtil.create(testStrings[i]).setModelView(CustomView.class).attach(resultList);
+        }
+        for (int i = 0; i < testStrings.length; i++) {
             ItemEntityUtil.create(testStrings[i]).setModelView(CustomLargeView.class).attach(resultList);
         }
         return resultList;
     }
 
 
-    // finally set to your adapter.
+    // finally set it to your adapter.
     adapter.addList(getTestList());
     adapter.notifyDataSetChanged();
 ```
 
 ### ViewPager
 
-Use [ModelPagerAdapter]().
+Use [ModelPagerAdapter](https://github.com/chenupt/MultipleModel/blob/master/lib%2Fsrc%2Fmain%2Fjava%2Fgithub%2Fchenupt%2Fmultiplemodel%2Fviewpager%2FModelPagerAdapter.java) which extends FragmentPagerAdapter.
 ```
 ModelPagerAdapter adapter = new ModelPagerAdapter(getSupportFragmentManager(), getModelPagerManager());
 viewPager.setAdapter(adapter);
