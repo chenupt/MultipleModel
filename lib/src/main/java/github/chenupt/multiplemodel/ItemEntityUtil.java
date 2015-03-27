@@ -41,10 +41,10 @@ public class ItemEntityUtil {
      * Check the cache timestamp.
      * @param oldEntity
      * @param newEntity
-     * @return should update the cache
+     * @return true use the cache
      */
     public static boolean checkCache(ItemEntity oldEntity, ItemEntity newEntity){
-        return oldEntity != null && newEntity.isSingleton() && oldEntity.getTimestamp() != newEntity.getTimestamp();
+        return oldEntity != null && newEntity.isSingleton() && oldEntity.getTimestamp() == newEntity.getTimestamp();
     }
 
     /**
