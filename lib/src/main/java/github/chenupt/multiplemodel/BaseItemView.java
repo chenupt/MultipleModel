@@ -27,7 +27,6 @@ import android.widget.FrameLayout;
 public abstract class BaseItemView<T> extends FrameLayout implements IItemView<T>, IPosition{
 
     protected ItemEntity<T> model;
-    protected int groupPosition;
     protected int viewPosition;
 
     public BaseItemView(Context context) {
@@ -63,8 +62,4 @@ public abstract class BaseItemView<T> extends FrameLayout implements IItemView<T
         viewPosition = position;
     }
 
-    @Override
-    public void bindGroupPosition(int position) {
-        groupPosition = position;
-    }
 }
