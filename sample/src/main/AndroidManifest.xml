@@ -29,6 +29,10 @@
             android:name=".activities.ViewPagerActivity"
             android:label="ViewPagerActivity">
         </activity>
+        <activity
+            android:name=".activities.NormalHolderActivity"
+            android:label="NormalHolderActivity">
+        </activity>
     </application>
 
 </manifest>

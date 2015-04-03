@@ -13,6 +13,7 @@ import github.chenupt.sample.views.AACustomLargeView_;
 import github.chenupt.sample.views.AACustomView_;
 import github.chenupt.sample.views.CustomLargeView;
 import github.chenupt.sample.views.CustomView;
+import github.chenupt.sample.views.CustomViewHolder;
 
 /**
  * Created by chenupt@gmail.com on 1/7/15.
@@ -39,6 +40,12 @@ public class CommonService {
                 .addModel(AACustomLargeView_.class);
     }
 
+    public ViewManager getHolderManagerBuilder(){
+        return ViewManager
+                .begin()
+                .addModel(CustomViewHolder.class);
+    }
+
     public List<ItemEntity> getTestList(){
         List<ItemEntity> resultList = new ArrayList<ItemEntity>();
         for (int i = 0; i < testStrings.length; i++) {
@@ -53,6 +60,15 @@ public class CommonService {
         for (int i = 0; i < testStrings.length; i++) {
             ItemEntityUtil.create(testStrings[i]).setModelView(AACustomView_.class).attach(resultList);
             ItemEntityUtil.create(testStrings[i]).setModelView(AACustomLargeView_.class).attach(resultList);
+        }
+        return resultList;
+    }
+
+    public List<ItemEntity> getHolderTestList(){
+        List<ItemEntity> resultList = new ArrayList<ItemEntity>();
+        for (int i = 0; i < testStrings.length; i++) {
+            ItemEntityUtil.create(testStrings[i]).setModelView(CustomViewHolder.class).attach(resultList);
+            ItemEntityUtil.create(testStrings[i]).setModelView(CustomViewHolder.class).attach(resultList);
         }
         return resultList;
     }

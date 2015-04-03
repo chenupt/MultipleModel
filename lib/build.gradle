@@ -36,55 +36,55 @@ configurations {
     }
 }
 
-signing {
-    required { has("release") && gradle.taskGraph.hasTask("uploadArchives") }
-    sign configurations.archives
-}
+//signing {
+//    required { has("release") && gradle.taskGraph.hasTask("uploadArchives") }
+//    sign configurations.archives
+//}
 
-uploadArchives {
-    configuration = configurations.archives
-    repositories.mavenDeployer {
-        beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-        repository(url: sonatypeRepoS) {
-            authentication(userName: sonatypeUsername,
-                    password: sonatypePassword)
-        }
-
-        pom.groupId = parent.ext.groupId
-        pom.artifactId = project.ext.artifactId
-        pom.version = parent.version
-
-        pom.project {
-            name 'Android MultipleModel'
-            packaging 'aar'
-            description 'Create list fastly.'
-            url 'https://github.com/chenupt/MultipleModel'
-
-            scm {
-                url 'https:github.com/chenupt/MultipleModel.git'
-                connection 'scm:git@github.com:VandalSoftware/android-cache-lib.git'
-                developerConnection 'scm:git@github.com:VandalSoftware/android-cache-lib.git'
-            }
-
-            licenses {
-                license {
-                    name 'The Apache Software License, Version 2.0'
-                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    distribution 'repo'
-                }
-            }
-
-            developers {
-                developer {
-                    id 'chenupt'
-                    name 'Chenupt'
-                    email 'chenupt@gmail.com'
-                }
-            }
-        }
-    }
-}
+//uploadArchives {
+//    configuration = configurations.archives
+//    repositories.mavenDeployer {
+//        beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+//
+//        repository(url: sonatypeRepoS) {
+//            authentication(userName: sonatypeUsername,
+//                    password: sonatypePassword)
+//        }
+//
+//        pom.groupId = parent.ext.groupId
+//        pom.artifactId = project.ext.artifactId
+//        pom.version = parent.version
+//
+//        pom.project {
+//            name 'Android MultipleModel'
+//            packaging 'aar'
+//            description 'Create list fastly.'
+//            url 'https://github.com/chenupt/MultipleModel'
+//
+//            scm {
+//                url 'https:github.com/chenupt/MultipleModel.git'
+//                connection 'scm:git@github.com:VandalSoftware/android-cache-lib.git'
+//                developerConnection 'scm:git@github.com:VandalSoftware/android-cache-lib.git'
+//            }
+//
+//            licenses {
+//                license {
+//                    name 'The Apache Software License, Version 2.0'
+//                    url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//                    distribution 'repo'
+//                }
+//            }
+//
+//            developers {
+//                developer {
+//                    id 'chenupt'
+//                    name 'Chenupt'
+//                    email 'chenupt@gmail.com'
+//                }
+//            }
+//        }
+//    }
+//}
 
 
 
