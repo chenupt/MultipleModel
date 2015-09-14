@@ -3,16 +3,11 @@ MultipleModel
 
 A library to create multiple item view fast. It is used in [DragTopLayout](https://github.com/chenupt/DragTopLayout) and [SpringIndicator](https://github.com/chenupt/SpringIndicator).
 
-The sample app: [click me](https://github.com/chenupt/MultipleModel/raw/master/imgs/sample-debug_1.2.0.apk).
-
 #Usage
 Add the dependency to your build.gradle.
 ```
-maven {
-    url "https://oss.sonatype.org/content/repositories/snapshots/"
-}
 dependencies {
-    compile 'com.github.chenupt.android:multiplemodel:1.2.0-SNAPSHOT@aar'
+    compile 'com.github.chenupt.android:multiplemodel:2.0.1@aar'
 }
 ```
 ### ListView & GridView & Spinner e.t.c
