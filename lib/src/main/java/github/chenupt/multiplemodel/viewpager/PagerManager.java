@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import github.chenupt.multiplemodel.ItemEntity;
+import github.chenupt.multiplemodel.BaseViewHolder;
 
 /**
  * Created by chenupt@gmail.com on 2014/8/9.
@@ -72,19 +72,13 @@ public class PagerManager {
         return this;
     }
 
-    public PagerManager addFragments(List<ItemEntity> dataList){
-        try {
-            for (ItemEntity itemEntity : dataList) {
-                Fragment fragment = (Fragment) itemEntity.getModelView().newInstance();
-                Bundle bundle = new Bundle();
-                bundle.putSerializable(DATA, itemEntity);
-                fragment.setArguments(bundle);
-                fragmentList.add(fragment);
-            }
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
+    public PagerManager addFragments(List<BaseViewHolder> dataList){
+        for (BaseViewHolder itemEntity : dataList) {
+            Fragment fragment = itemEntity.getFragment();
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(DATA, itemEntity);
+            fragment.setArguments(bundle);
+            fragmentList.add(fragment);
         }
         return this;
     }

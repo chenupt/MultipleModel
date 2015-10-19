@@ -28,7 +28,7 @@ import java.util.List;
  * Created by chenupt@gmail.com on 2014/8/8.
  * Description : Simple base list adapter for getting multiple item views in list.
  */
-public class ModelListAdapter extends BaseListAdapter<ItemEntity> {
+public class ModelListAdapter extends BaseListAdapter<BaseViewHolder> {
 
     public ViewManager viewManager;
 
@@ -39,21 +39,16 @@ public class ModelListAdapter extends BaseListAdapter<ItemEntity> {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        if(view == null){
-            Class<?> owner = viewManager.viewMap.get(getItem(i).getModelType());
-            try {
-                view = modelNewInstance(context, owner);
-            } catch (Exception e) {
-                e.printStackTrace();
-                throw new RuntimeException("The view:" + getItem(i).getModelView().getName() + " is null. Please check your layout");
-            }
+        BaseViewHolder viewHolder = null;
+        if(view == null) {
+            viewHolder = getItem(i);
+            view = viewHolder.onCreateView(context, viewGroup);
+            view.setTag(viewHolder);
+        }else{
+            viewHolder = (BaseViewHolder)view.getTag();
         }
-        if (view instanceof IPosition){
-            ((IPosition)view).bindViewPosition(i);
-        }
-        if (view instanceof IItemView){
-            ((IItemView)view).bindView(getItem(i));
-        }
+        viewHolder.bindViewPosition(i);
+        viewHolder.bindView(getItem(i));
         return view;
     }
 
@@ -63,11 +58,10 @@ public class ModelListAdapter extends BaseListAdapter<ItemEntity> {
 
     @Override
     public int getItemViewType(int position) {
-        String modelType = getItem(position).getModelType();
-        if( !viewManager.indexMap.containsKey(modelType)){
-            throw new RuntimeException("The list does not contain the modelView:'" + modelType + "'. Please check the ModelBuilder.");
+        if( !viewManager.viewMap.containsKey(getItem(position).getClass())){
+            throw new RuntimeException("The list does not contain the modelView:'" + getItem(position).getClass().getName() + "'. Please check the ModelBuilder.");
         }
-        return viewManager.indexMap.get(modelType);
+        return viewManager.viewMap.get(getItem(position).getClass());
     }
 
     @Override
@@ -83,8 +77,8 @@ public class ModelListAdapter extends BaseListAdapter<ItemEntity> {
      * @param tag   tag value
      * @return      item model
      */
-    public ItemEntity getStartItemByTag(List<ItemEntity> list, String tag){
-        for (ItemEntity entity : list) {
+    public BaseViewHolder getStartItemByTag(List<BaseViewHolder> list, String tag){
+        for (BaseViewHolder entity : list) {
             if (entity.getTag().equals(tag)){
                 return entity;
             }
@@ -98,9 +92,9 @@ public class ModelListAdapter extends BaseListAdapter<ItemEntity> {
      * @param tag   tag value
      * @return      item model
      */
-    public ItemEntity getEndItemByTag(List<ItemEntity> list, String tag){
+    public BaseViewHolder getEndItemByTag(List<BaseViewHolder> list, String tag){
         Collections.reverse(list);
-        for (ItemEntity entity : list) {
+        for (BaseViewHolder entity : list) {
             if (entity.getTag().equals(tag)){
                 Collections.reverse(list);
                 return entity;
