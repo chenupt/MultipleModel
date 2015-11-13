@@ -33,6 +33,10 @@
             android:name=".activities.NormalHolderActivity"
             android:label="NormalHolderActivity">
         </activity>
+        <activity
+            android:name=".activities.ExpandableListActivity_"
+            android:label="NormalHolderActivity">
+        </activity>
     </application>
 
 </manifest>

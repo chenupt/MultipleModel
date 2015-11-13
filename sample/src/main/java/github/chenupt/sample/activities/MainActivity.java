@@ -33,4 +33,8 @@ public class MainActivity extends ActionBarActivity {
         startActivity(new Intent(this, NormalHolderActivity.class));
     }
 
+    public void toExpandableListActivity(View view) {
+        startActivity(new Intent(this, ExpandableListActivity_.class));
+    }
+
 }

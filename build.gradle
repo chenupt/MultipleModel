@@ -13,9 +13,6 @@ buildscript {
 allprojects {
     repositories {
         mavenCentral()
-        maven{
-            url "http://dev.wisorg.com/nexus/content/repositories/snapshots/"
-        }
     }
 }
 
