@@ -27,15 +27,6 @@ import github.chenupt.multiplemodel.viewpager.PagerManager;
  */
 public class ItemEntityUtil {
 
-    /**
-     * Create a new ItemEntity.
-     * @param content
-     * @param <T>
-     * @return
-     */
-    public static <T> ItemEntity<T> create(T content){
-        return new ItemEntity<T>(content);
-    }
 
     /**
      * Check the cache timestamp.
@@ -43,7 +34,7 @@ public class ItemEntityUtil {
      * @param newEntity
      * @return true use the cache
      */
-    public static boolean checkCache(ItemEntity oldEntity, ItemEntity newEntity){
+    public static boolean checkCache(BaseViewHolder oldEntity, BaseViewHolder newEntity){
         return oldEntity != null && newEntity.isSingleton() && oldEntity.getTimestamp() == newEntity.getTimestamp();
     }
 
@@ -52,8 +43,8 @@ public class ItemEntityUtil {
      * @param fragment
      * @return
      */
-    public static ItemEntity getModelData(Fragment fragment){
-        return (ItemEntity) fragment.getArguments().getSerializable(PagerManager.DATA);
+    public static BaseViewHolder getModelData(Fragment fragment){
+        return (BaseViewHolder) fragment.getArguments().getSerializable(PagerManager.DATA);
     }
 
 }

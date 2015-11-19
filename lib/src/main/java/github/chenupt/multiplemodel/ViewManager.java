@@ -28,46 +28,35 @@ public class ViewManager {
         return new ViewManager();
     }
 
-    public HashMap<String, Class<?>> viewMap;  // view type - > view class
-    public HashMap<String, Integer> indexMap;  // view type - > view type index
+    public HashMap<Class<? extends BaseViewHolder>, Integer> viewMap;  // view class - > view type
+
     public HashMap<Integer, Boolean> pinnedMap;// view type index - > pinned
-    public HashMap<Integer, Class<?>> iViewMap;// view type index - > view class
+
 
     public ViewManager() {
-        viewMap = new HashMap<String, Class<?>>();
-        indexMap = new HashMap<String, Integer>();
+        viewMap = new HashMap<Class<? extends BaseViewHolder>, Integer>();
         pinnedMap = new HashMap<Integer, Boolean>();
-        iViewMap = new HashMap<Integer, Class<?>>();
     }
 
-    public ViewManager addModel(Class<?> viewClass) {
+
+    public ViewManager addModel(Class<? extends BaseViewHolder> viewClass) {
         return addModel(viewClass, false);
     }
 
-    public ViewManager addModel(Class<?> viewClass, boolean isPinned) {
-        return addToMap(getModelTypeName(viewClass), viewClass, isPinned);
+    public ViewManager addModel(Class<? extends BaseViewHolder> viewClass, boolean isPinned) {
+        return addToMap(viewClass, isPinned);
     }
 
-    public ViewManager addModel(String modelType, Class<?> viewClass) {
-        return addModel(modelType, viewClass, false);
-    }
-
-    public ViewManager addModel(String modelType, Class<?> viewClass, boolean isPinned) {
-        return addToMap(modelType, viewClass, isPinned);
-    }
-
-    private ViewManager addToMap(String modelType, Class<?> viewClass, boolean isPinned) {
-        if (!viewMap.containsKey(modelType)) {
-            viewMap.put(modelType, viewClass);
+    private ViewManager addToMap(Class<? extends BaseViewHolder> viewClass, boolean isPinned) {
+        if (!viewMap.containsKey(viewClass)) {
             int viewType = viewMap.size() - 1;
-            indexMap.put(modelType, viewType);
+            viewMap.put(viewClass, viewType);
             pinnedMap.put(viewType, isPinned);
-            iViewMap.put(viewType, viewClass);
         }
         return this;
     }
 
-    private String getModelTypeName(Class<?> modelView) {
+    private String getModelTypeName(Class<BaseViewHolder> modelView) {
         return modelView.getName();
     }
 }
