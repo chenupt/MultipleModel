@@ -92,6 +92,10 @@ public class ItemEntity<T> implements Serializable{
         return content;
     }
 
+    public T getContent(Class<T> c) {
+        return (T)content;
+    }
+
     public ItemEntity setContent(T content) {
         this.content = content;
         return this;
