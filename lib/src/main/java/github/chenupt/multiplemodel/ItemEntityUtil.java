@@ -19,6 +19,9 @@ package github.chenupt.multiplemodel;
 
 import android.support.v4.app.Fragment;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import github.chenupt.multiplemodel.viewpager.PagerManager;
 
 /**
@@ -54,6 +57,20 @@ public class ItemEntityUtil {
      */
     public static ItemEntity getModelData(Fragment fragment){
         return (ItemEntity) fragment.getArguments().getSerializable(PagerManager.DATA);
+    }
+
+    /**
+     * Get a test data list, default content is a empty string.
+     * @param size
+     * @param modelView
+     * @return
+     */
+    public static List<ItemEntity> getTestList(int size, Class modelView) {
+        List<ItemEntity> dataList = new ArrayList<>();
+        for (int i = 0; i < size; i++) {
+            ItemEntityUtil.create("").setModelView(modelView).attach(dataList);
+        }
+        return dataList;
     }
 
 }
